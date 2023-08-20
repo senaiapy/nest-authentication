@@ -1065,13 +1065,23 @@ GET {{apiNLSENAIAWdb}}/coibfetecnico
 
 ### POST login USER
 // @name LOCAL
+GET {{LSENAIA}}/user
+content-type: application/json
+
+{
+ 
+}
+###
+###
+### POST login USER
+// @name LOCAL
 POSt {{LSENAIA}}/auth/login
 content-type: application/json
 
 {
-  "email": "john@gmail.com",
-  "username": "john",
-  "password": "changeme"
+  "email": "marcelu@gmail.com",
+  "username": "marcelu",
+  "password": "123456"
 }
 ###
 ###

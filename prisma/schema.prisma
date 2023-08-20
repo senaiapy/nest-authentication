@@ -2,21 +2,20 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator dbml {
-  provider = "prisma-dbml-generator"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+generator dbml {
+  provider = "prisma-dbml-generator"
+}
 model User {
   id    Int     @default(autoincrement()) @id
   email String  @unique
   username  String?
   password  String?
-  posts Post[]
+  //posts Post[]
 }
 
 model Post {
@@ -24,6 +23,6 @@ model Post {
   title     String
   content   String?
   published Boolean? @default(false)
-  author    User?    @relation(fields: [authorId], references: [id])
+  //author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
 }

@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
+    "moduleResolution": "node",
     "module": "commonjs",
-    "declaration": true,
+    "declaration": false,
     "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -10,12 +11,21 @@
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
-    "incremental": true,
+    "incremental": false,
     "skipLibCheck": true,
-    "strictNullChecks": false,
+    "skipDefaultLibCheck": true,
     "noImplicitAny": false,
-    "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "resolveJsonModule": true,
+    "paths": {
+      "src": ["src/*"],
+    }
+  },
+  "include": ["src/**/*", "**/*.ts", "**/*.tsx", "**/*.config.js", "**/*.spec.ts","**/*.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".docker"
+  ]
 }
