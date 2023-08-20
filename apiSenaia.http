@@ -1,0 +1,1077 @@
+
+@apiSenaia = http://pyfoundation.online:3333/api/v0/senaia
+
+@apiLocalSenaiaUrl = http://localhost:3333/api/v0/senaia
+@apiLocalFrontUrl = http://localhost:3333/api/v0/sicoga/front
+
+@apiSVr = http://38.242.202.1:3333/api/v0/senaia
+@apiSVlinode = http://172.104.31.117:3333/api/v0/senaia
+
+@apiSENAIA = http://208.117.87.29:3333/api/v0/senaia
+@apiSENAIAFrontUrl = http://208.117.87.29:3333/api/v0/sicoga/front
+
+@apiSENAIAWdb = http://208.117.87.29:3333/api/v0/senaia/wdb
+@apiLocalSENAIAWdb = http://localhost:3333/api/v0/senaia/wdb
+@apiLocalSENAIA = http://localhost:3333/api/v0/senaia
+
+@apiCUXO = http://208.117.87.29:3333/api/v0/senaia
+@apiCUXOWdb = http://208.117.87.29:3333/api/v0/senaia/wdb
+@apiLocalCUXO = http://localhost:3333/api/v0/senaia
+
+#@SENAIA = https://senaiaweb.online/api/v0/senaia
+@apiNSENAIA = http://24.199.112.85:3333/api/v0/senaia
+
+@apiNSENAIAWdb = http://24.199.112.85:3333/api/v0/senaia/wdb
+
+@apiNLSENAIAWdb = http://localhost:3333/api/v0/senaia/wdb
+@LSENAIA = http://localhost:3333/api/v0/senaia/wdb
+
+@SENAIA = https://senaiaweb.online/api/v0/senaia/wdb
+
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+
+### CREATE USER
+
+// @name create  usuarios 
+POST {{apiSENAIA}}/usuario/cadastrar  HTTP/1.1
+content-type: application/json
+
+{
+  "email": "carolinafb@gmail.com",
+  "telefone": "985676074",
+  "cpf": "877",
+  "nome": "Carolina Flores Burgos",
+  "senha": "1234",
+  "user_id": "string",
+  "user_name_register": "Carolina Flores Burgos",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_key_hardware": "abbb",
+  "user_level_access": "aaaa",
+  "user_vpa": "877",
+  "user_token": "3",
+  "user_public_key": "asda",
+  "user_private_key": "ada",
+  "user_wallet_id": "123",
+  "user_system_type": "",
+  "Status": "ACTIVE"
+}
+
+############################################
+### CREATE USER
+
+// @name create  usuarios 
+POST {{apiLocalSENAIA}}/usuario/cadastrar  HTTP/1.1
+content-type: application/json
+
+{
+  "email": "carolinafb@gmail.com",
+  "telefone": "985676074",
+  "cpf": "877",
+  "nome": "Carolina Flores Burgos",
+  "senha": "1234",
+  "user_id": "string",
+  "user_name_register": "Carolina Flores Burgos",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_key_hardware": "abbb",
+  "user_level_access": "aaaa",
+  "user_vpa": "877",
+  "user_token": "2",
+  "user_public_key": "asda",
+  "user_private_key": "ada",
+  "user_wallet_id": "123",
+  "user_system_type": "",
+  "Status": "ACTIVE"
+}
+
+
+############################################
+### CREATE USER
+
+// @name create  usuarios 
+POST {{apiLocalSENAIAWdb}}/usuario/cadastrar  HTTP/1.1
+content-type: application/json
+
+{
+  "email": "carolinafb@gmail.com",
+  "telefone": "985676074",
+  "cpf": "877",
+  "nome": "Carolina Flores Burgos",
+  "senha": "1234",
+  "user_id": "string",
+  "user_name_register": "Carolina Flores Burgos",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_key_hardware": "abbb",
+  "user_level_access": "aaaa",
+  "user_vpa": "877",
+  "user_token": "2",
+  "user_public_key": "asda",
+  "user_private_key": "ada",
+  "user_wallet_id": "123",
+  "user_system_type": "VPA",
+  "Status": "ACTIVE"
+}
+############################################
+############################################
+
+### GET all usuarios USER LOCAL
+// @name findAll usuarios
+GET {{apiLocalSENAIA}}/usuario
+
+### GET by id USER
+// @name get by usuario vpa
+GET {{apiLocalSENAIA}}/usuario/vpa/877
+
+### GET by id
+// @name get by usuario by vpa
+GET {{apiLocalSENAIAWdb}}/usuario/search/vpa/877
+
+############################################
+
+### GET all usuarios USER LOCAL
+// @name findAll usuarios
+GET {{apiLocalSENAIAWdb}}/usuarios
+
+
+############################################
+### GET by id
+// @name get by usuario by telefone
+GET {{apiLocalSENAIA}}/usuario/telefone/985676074
+
+### GET by id
+// @name get by usuario by telefone
+GET {{apiLocalSENAIAWdb}}/usuario/search/telefone/985676074
+
+### GET by id
+// @name get by usuario by email
+GET {{apiLocalSENAIA}}/usuario/email/carolinafb@gmail.com
+
+### GET by id
+// @name get by usuario by email
+GET {{apiLocalSENAIAWdb}}/usuario/search/email/carolinafb@gmail.com
+
+
+### GET by id
+// @name get by usuario
+GET {{apiLocalSENAIA}}/usuario/one/1
+
+
+### GET user status
+// @name findAll usuarios
+GET {{apiLocalSENAIA}}/usuario/listar_status/877
+
+### GET user status
+// @name findAll usuarios
+GET {{apiLocalSENAIAWdb}}/usuario/listar_status/877
+
+
+############################################
+### GET by id
+// @name get by usuario
+GET {{apiLocalSENAIAWdb}}/usuario/one/5
+############################################
+
+// @name get by usuario
+PATCH {{apiLocalSENAIA}}/usuario/one/20
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+############################################
+### GET by id
+// @name get by usuario
+PATCH {{apiLocalSENAIAWdb}}/usuario/5
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+
+### GET by id
+// @name get by usuario
+DELETE {{apiLocalSENAIA}}/usuario/one/1
+
+### GET all coibfecoibfess COIBFE
+// @name findAll coibfecoibfes
+GET {{apiLocalSENAIAWdb}}/coibfecoibfes
+
+############################################
+############################################
+############################################
+### GET by id
+// @name get by usuario
+DELETE {{apiLocalSENAIAWdb}}/usuario/5
+############################################
+### GET by id
+// @name get by usuario
+DELETE {{apiSENAIA}}/usuario/one/3
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+
+### GET all usuarios USER
+// @name findAll usuarios
+GET {{apiSENAIA}}/usuario
+
+### GET by id
+// @name get by usuario
+GET {{apiSENAIA}}/usuario/vpa/877
+
+### GET by id
+// @name get by usuario
+GET {{apiSENAIA}}/usuario/telefone/985676074
+
+############################################
+############################################
+### GET by id
+// @name get by usuario
+GET {{apiSENAIA}}/usuario/one/17
+### GET by id
+
+### GET by id
+// @name get by usuario
+GET {{apiSENAIA}}/usuario/email/carolinafb@gmail.com
+############################################
+############################################
+
+### GET user status
+// @name findAll usuarios
+GET {{apiSENAIA}}/usuario/listar_status/877
+
+############################################
+############################################
+### UPDATE
+// @name UPDATE usuario/cpf or vpa
+############################################
+### GET by id
+// @name get by usuario
+PATCH {{apiSENAIA}}/usuario/one/89
+content-type: application/json
+
+{
+  
+  "user_token": "4",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+// "nome": "Francisco Javier Mendez Insfran",
+//  "cpf": "870",
+###########################################
+
+############################################
+### GET by id
+// @name get by usuario
+PATCH {{apiSENAIA}}/usuario/one/20
+content-type: application/json
+
+{
+  "cpf": "798",    
+  "user_vpa": "798"  
+}
+############################################
+############################################
+############################################
+
+### DELETE USER
+// @name mark to remove delusuario/ 
+DELETE {{apiSENAIA}}/usuario/delete/20
+
+### GET by id
+// @name get by usuario
+DELETE {{apiLocalSENAIA}}/usuario/one/1
+############################################
+### GET by id
+// @name get by usuario
+DELETE {{apiLocalSENAIAWdb}}/usuario/5
+############################################
+### GET by id
+// @name get by usuario
+DELETE {{apiSENAIA}}/usuario/one/20
+
+############################################
+############################################
+##########################################
+############################################
+
+
+### CREATE COIBFE
+
+// @name create  coibfes 
+POST {{apiSENAIAWdb}}/coibfecoibfes  HTTP/1.1
+content-type: application/json
+
+{
+ "ids": "",
+    "coibfeuniqueid": "",
+    "coibfesaltkey": "",
+    "coibfecodigov": "452dfb",
+    "coibfetransporte": "T",
+    "coibfefinalidad": "F",
+    "coibfedestino": "UE",
+    "coibfeanimales": "",
+    "coibfeaninovillos": "0",
+    "coibfeanitoros": "40",
+    "coibfeanivacas": "0",
+    "coibfeanivaquillas": "0",
+    "coibfeaniotros": "0",
+    "coibfeanitotal": "40",
+    "coibfeanihilton": "0",
+    "coibfetecnico_vpa_id": "877",
+    "coibfetecniconame": "Carolina Flores",
+    "coibfefrigorificoname": "frigorifico Concepcion",
+    "coibfefrigorifico_id": "0101010005",
+    "coibfeproductorname": "ARREND. FERNANDEZ GAMEZ LUIS ANIBAL",
+    "coibfeproductor_id": "318531",
+    "coibfeproductorsitrap": "LAFG",
+    "coibfepropriedadname": "DON LUIS A",
+    "coibfepropriedad_id": "",
+    "coibfepropriedadsigor": "0217090002",
+    "coibfepropriedadsitrap": "LUIS",
+    "coibfepropriedaddepartamento": "SAN PEDRO",
+    "coibfepropriedaddistrito": "PUERTO YBAPOBO",
+    "coibfepropriedad_productor_id": "",
+    "coibfeprecinto1": "472534",
+    "coibfeprecinto2": "472535",
+    "coibfeprecinto3": "472536",
+    "coibfecaravanas": "",
+    "coibfepos_id": "QTg1MTVCRTJGOEM0NDM5MjkxNjBmMmExN2ZkNA==",
+    "coibfeposdate": "2022-11-23T16:38:06-03:00",
+    "coibfeposapikeymobile": "",
+    "coibfeposlatitud": "-23.596468311734498",
+    "coibfeposlongitud": "-57.01739969663322",
+    "coibfeobs": "",
+    "coibfedocnroprop": "318531",
+    "coibfedocdigprop": "",
+    "coibfedocorigabrev": "PY",
+    "coibfedoctipoabrev": "CI",
+    "coibfeerrocode": "",
+    "coibfeerromessage": "",
+    "coibfe_issinc": "false",
+    "coibfetoken": "",
+    "coibfekey": "",
+    "coibfeapikeyprivate": "",
+    "coibfedevicetype": "",
+    "coibfedevicestatus": "",
+    "coibfeservername": "",
+    "coibfepaydate": "",
+    "coibfeid": "48770002",
+    "counter": 0,
+    "coibfeproductor_id_type": "",
+    "coibfeproductor_id_origem": "",
+    "coibfe_print": ""
+  }
+
+############################################
+############################################
+
+### GET all coibfecoibfess COIBFE
+// @name findAll coibfecoibfes
+GET {{apiSENAIAWdb}}/coibfecoibfes
+
+############################################
+############################################
+
+############################################
+############################################
+
+### GET ONE coibfecoibfess COIBFE
+// @name findAll coibfecoibfes
+GET {{apiSENAIAWdb}}/coibfecoibfes/1
+
+############################################
+############################################
+
+############################################
+############################################
+
+### DELETE ONE coibfecoibfess COIBFE
+// @name findAll coibfecoibfes
+DELETE {{apiSENAIAWdb}}/coibfecoibfes/343
+
+############################################
+############################################
+
+############################################
+############################################
+### UPDATE
+// @name UPDATE coibfes
+
+PUT  {{apiSENAIAWdb}}/coibfecoibfes/113  HTTP/1.1
+content-type: application/json
+
+{
+             "coibfeobs": "ANULADO"
+}
+
+############################################
+############################################
+
+############################################
+############################################
+### UPDATE
+// @name UPDATE coibfes
+
+PUT  {{apiSENAIAWdb}}/coibfecoibfes/113  HTTP/1.1
+content-type: application/json
+
+{
+             "coibfeid": "48320016"
+}
+
+############################################
+############################################
+
+############################################
+############################################
+### UPDATE
+// @name UPDATE coibfes
+
+PUT  {{apiSENAIAWdb}}/coibfecoibfes/118  HTTP/1.1
+content-type: application/json
+
+{
+  "coibfetecnico_vpa_id": "473",
+  "coibfeid": "44730014",
+  "coibfe_issinc":"false"
+}
+
+####
+DELETE  {{apiSENAIAWdb}}/coibfecoibfes/720  HTTP/1.1
+content-type: application/json
+
+{
+ 
+}
+
+############################################
+############################################
+
+### get coibfes
+
+// @name   coibfes 
+GET http://208.117.87.29:3333/api/v0/senaia/wdb/coibfecoibfes  HTTP/1.1
+content-type: application/json
+
+
+### get coibfes LOCALHOST
+// @name   coibfes 
+GET {{apiNLSENAIAWdb}}/coibfecoibfes  HTTP/1.1
+content-type: application/json
+
+### get coibfes LOCALHOST
+// @name   coibfes 
+GET {{apiNLSENAIAWdb}}/coibfecoibfes/180  HTTP/1.1
+content-type: application/json
+
+############################################
+############################################
+############################################
+############################################
+
+### get  BUSCA TODOS FRIGORIFICOs
+
+// @name    FRIGORIFICO 
+GET {{apiSENAIAWdb}}/coibfefrigorifico  HTTP/1.1
+content-type: application/json
+
+{
+ 
+}
+############################################
+
+// @name   CREA FRIGORIFICO 
+POST {{apiSENAIAWdb}}/coibfefrigorifico  HTTP/1.1
+content-type: application/json
+
+{
+"frigorificoname": "frigorifico Guarani S A",
+"frigorifico_id": "1103010019",
+ "frigorificodepartamento": "Alto Paraguay",
+ "frigorificodistrito": "undefined",
+}
+
+############################################
+
+### update ATUALIZA UNA FRIGORIFICO
+// @name    FRIGORIFICO 
+PUT {{apiSENAIAWdb}}/coibfefrigorifico/8  HTTP/1.1
+content-type: application/json
+
+{
+ "frigorificoname": "frigorifico Guarani S A",
+"frigorifico_id": "1103010019",
+ "frigorificodepartamento": "Alto Paraguay",
+ "frigorificodistrito": "undefined",
+}
+
+### update ATUALIZA UNA FRIGORIFICO
+// @name    FRIGORIFICO 
+DELETE {{apiSENAIAWdb}}/coibfefrigorifico/12  HTTP/1.1
+############################################
+############################################
+############################################
+############################################
+
+### get  BUSCA TODOS PRODUCTORES
+// @name    prod 
+GET http://208.117.87.29:3333/api/v0/senaia/wdb/coibfeproductor  HTTP/1.1
+content-type: application/json
+
+{
+ 
+}
+############################################
+
+// @name   CREA PROPIEDAD 
+POST http://208.117.87.29:3333/api/v0/senaia/wdb/coibfeproductor  HTTP/1.1
+content-type: application/json
+
+{
+    "productorname": "ESTANCIA PROEBA",
+    "productor_id_type": "CI",
+    "productor_id_origem": "PY",
+    "productor_propriedad_id": "1234567890",
+    "productorkey": "600e032f472c4a70bb0d2506",
+    "productorstatus": "active",
+    "productorlocked": "unlocked",
+    "productorsitrap": "PROEB",
+    "productorservername": "208.117.87.29:3333",
+    "productordocnroprop": "8089161",
+    "productordocdigprop": "6",
+    "productordocorigabrev": "PY",
+    "productordoctipoabrev": "RUC",
+    "productor_id": "8089161-6"
+}
+
+############################################
+############################################
+
+### update ATUALIZA UNA PROPIEDAD
+
+// @name    PROPIEDAD 
+PUT http://208.117.87.29:3333/api/v0/senaia/wdb/coibfeproductor/537  HTTP/1.1
+content-type: application/json
+
+{
+ "productorkey": "1234567890"
+}
+
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+
+### get  BUSCA TODAS PROPIEDADS
+
+// @name    prop 
+GET http://208.117.87.29:3333/api/v0/senaia/wdb/coibfepropriedad  HTTP/1.1
+content-type: application/json
+
+{
+ 
+}
+
+############################################
+############################################
+
+// @name   CREA PROPIEDAD 
+POST http://208.117.87.29:3333/api/v0/senaia/wdb/coibfepropriedad  HTTP/1.1
+content-type: application/json
+
+{
+    "propriedadname": "ESTANCIA CARAVAGIO",
+    "propriedadstatus": "active",
+    "propriedadlocked": "unlocked",
+    "propriedadtoken": "undefined",
+    "propriedadsitrap": "CARA",
+    "propriedaddepartamento": "CONCEPCION",
+    "propriedaddistrito": "YBY YAU",
+    "propriedadapikeyhardware": "$2a$10$nWw60E3FGTc4uEN3Kk5UHO/PhFX1TSNPoHMrL7PP/vi/0SOF.TqQi",
+    "propriedadsigor": "0107240055",
+    "propriedadproductors": "3977320"
+  }
+
+############################################
+############################################
+
+### update ATUALIZA UNA PROPIEDAD
+
+// @name    PROPIEDAD 
+PUT http://208.117.87.29:3333/api/v0/senaia/wdb/coibfepropriedad/258  HTTP/1.1
+content-type: application/json
+
+{
+ "propriedadproductors": "80081523-8"
+}
+
+############################################
+############################################
+############################################
+############################################
+### GET all usuarios USER
+// @name findAll usuarios
+GET {{apiSENAIA}}/usuario
+
+
+### DELETE USER
+// @name mark to remove delusuario/ 
+DELETE {{apiSENAIA}}/usuario/delete/120
+############################################
+############################################
+### GET by id
+// @name get by usuario
+PATCH {{apiSENAIA}}/usuario/one/138
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+// "nome": "Francisco Javier Mendez Insfran",
+//  "cpf": "870",
+###########################################
+############################################
+############################################
+############################################
+############################################
+### GET all usuarios USER
+// @name findAll usuarios
+GET {{apiSENAIA}}/usuario
+
+
+### DELETE USER
+// @name mark to remove delusuario/ 
+DELETE {{apiSENAIA}}/usuario/delete/120
+############################################
+############################################
+### GET by id
+// @name get by usuario
+PATCH {{apiSENAIA}}/usuario/one/138
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+// "nome": "Francisco Javier Mendez Insfran",
+//  "cpf": "870",
+###########################################
+# https://senaiaweb.online/api/v0/senaia/
+# http://24.199.112.85:3333/api/v0/senaia/
+# https://www.senaiaweb.online/api/v0/senaia/swagger
+
+// @name    prop 
+GET {{{{apiSENAIAWdb}}}}/coibfepropriedad  HTTP/1.1
+content-type: application/json
+
+{
+ 
+}
+############################################
+
+// @name create  usuarios 
+POST {{apiSENAIA}}/usuario/cadastrarCId  HTTP/1.1
+content-type: application/json
+
+{
+  "cpf": "1234",
+  "user_token": "4",
+  "user_status": "active",    
+  "user_locked": "unlocked" 
+}
+
+############################################
+###########################################
+############################################
+############################################
+############################################
+############################################
+
+############################################
+###########################################
+############################################
+############################################
+############################################
+############################################
+
+# https://senaiaweb.online/api/v0/senaia/
+# http://24.199.112.85:3333/api/v0/senaia/
+# https://www.senaiaweb.online/api/v0/senaia/swagger
+
+
+### CREATE usuario USERE
+// @name post usuario
+POST {{apiNSENAIAWdb}}/usuario
+content-type: application/json
+
+{
+  "nome": "Marcelo Anjos",
+    "email": "marcelu.phd@gmail.com",
+    "password": "$2b$08$RAL/igaXvMKPvlBRixtmLetG8iH2xegymsRdAqK7q0norVeEdOVca",
+    "telefone": "0993547294",
+    "cpf": "1234",
+    "user_status": "inactive",
+    "user_locked": "locked",
+    "user_key_hardware": "MzAwNzREOEEzMTk1W29iamVjdCBPYmplY3Rd",
+    "user_level_access": "10",
+    "user_vpa": "1234",
+    "user_token": "1",
+    "Status": "ACTIVE"
+}
+
+############################################
+
+### GET all usuarios USERES
+// @name findAll usuarios
+GET {{apiNSENAIAWdb}}/usuarios
+
+###
+###
+### GET all usuarios USER
+// @name findAll usuarios
+GET {{apiNSENAIAWdb}}/usuario/2
+
+### GET by OBJ
+// @name get by usuario VPA
+GET {{apiNSENAIAWdb}}/usuario/search/telefone/0993547294
+
+### GET by OBJ
+// @name get by usuario VPA
+GET {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
+############################################
+
+####
+### UPDATE by id
+PATCH {{apiNSENAIAWdb}}/usuario/2
+content-type: application/json
+
+{
+  "cpf": "1234",
+  "user_vpa": "1234",
+  "email": "marcelu.phd@gmail.com" 
+}
+
+### UPDATE by OBJ PHONE
+// @name get by usuario VPA
+PATCH {{apiNSENAIAWdb}}/usuario/search/telefone/0993547294
+// @name get by usuario
+content-type: application/json
+
+{
+  "cpf": "1234",
+  "user_vpa": "1234",
+  "email": "marcelu.phd@gmail.com" 
+}
+
+### UPDATE by OBJ PHONE
+// @name get by usuario VPA
+PATCH {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
+// @name get by usuario
+content-type: application/json
+
+{
+   "user_status": "active",
+  "user_locked": "unlocked",
+  "user_token": "1",
+   "Status": "ACTIVE" 
+}
+
+### UPDATE by id ACTIVATE
+// @name get by usuario
+PATCH {{apiNSENAIAWdb}}/usuario/2
+content-type: application/json
+
+{
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_token": "0" 
+}
+
+###########################################
+
+### DELETE USER
+// @name mark to remove delusuario/ 
+DELETE {{apiNSENAIAWdb}}/usuario/20
+############################################
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/coibfecoibfes  HTTP/1.1
+content-type: application/json
+
+{
+ 
+}
+############################################
+
+// @name    local 
+POST {{apiNLSENAIAWdb}}/general  HTTP/1.1
+content-type: application/json
+
+{
+ "generalId": "11",
+  "generalUniqueId": "111",
+  "general_vacuna": [
+    "1","2","3"
+  ],
+  "general_raza": [
+    "4","2","3"
+  ],
+  "general_classificacion": [
+    "5","2","3"
+  ],
+  "general_dispositivo": [
+    "6","2","3"
+  ],
+  "general_color": [
+    "7","2","3"
+  ],
+  "general_categoria": [
+    "8","2","3"
+  ],
+  "general_modalidad": [
+    "9","2","3"
+  ],
+  "general_destino": [
+    "10","2","3"
+  ],
+  "general_permission": [
+    "11","2","3"
+  ],
+  "general_1": [
+    "1","2","3"
+  ],
+  "general_2": [
+    "1","2","3"
+  ],
+  "general_3": [
+    "1","2","3"
+  ],
+  "general_4": [
+    "1","2","3"
+  ],
+  "general_5": [
+    "1","2","3"
+  ],
+  "general_6": [
+    "1","2","3"
+  ],
+  "general_7": [
+    "1","2","3"
+  ],
+  "general_8": [
+    "1","2","3"
+  ],
+  "general_9": [
+    "1","2","3"
+  ],
+  "general_10": [
+    "1","2","3"
+  ],
+  "general_is_sync": true,
+  "dbversion": "1"
+}
+###
+// @name    SERVER 
+GET {{apiNSENAIAWdb}}/general  HTTP/1.1
+###
+// @name    LOCAL 
+GET {{apiNLSENAIAWdb}}/general  HTTP/1.1
+###
+
+// @name    local 
+GET {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
+###
+
+// @name    local 
+PUT {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
+content-type: application/json
+
+{
+  "general_vacuna": [
+    "5","5","3"
+  ]
+}
+###
+
+// @name    local 
+DELETE {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
+content-type: application/json
+
+
+############################################
+############################################
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/coibfecoibfesdump  HTTP/1.1
+content-type: application/json
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/coibfepropriedaddump  HTTP/1.1
+content-type: application/json
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/coibfeproductordump  HTTP/1.1
+content-type: application/json
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/coibfefrigorificodump  HTTP/1.1
+content-type: application/json
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/generaldump  HTTP/1.1
+content-type: application/json
+
+
+############################################
+############################################
+############################################
+###
+###
+// @name    LOCAL 
+GET {{apiNLSENAIAWdb}}/modelo  HTTP/1.1
+###
+// @name    LOCAL 
+GET {{apiNLSENAIAWdb}}/modelo/cll70ixev0000a65i0a6lcby0  HTTP/1.1
+###
+// @name    LOCAL 
+PUT {{apiNLSENAIAWdb}}/modelo/cll70ixev0000a65i0a6lcby0  HTTP/1.1
+content-type: application/json
+
+{
+  "dadus1": "4"
+}
+###
+// @name    LOCAL 
+DELETE {{apiNLSENAIAWdb}}/modelo/cll70ixev0000a65i0a6lcby0  HTTP/1.1
+content-type: application/json
+############################################
+###
+###
+// @name    SERVER HTTPS
+GET {{SENAIA}}/modelo  HTTP/1.1
+###
+###
+// @name    SERVER 
+GET {{apiNSENAIAWdb}}/modelo  HTTP/1.1
+###
+// @name    SERVER 
+GET {{apiNSENAIAWdb}}/modelo/1  HTTP/1.1
+###
+###
+// @name    SERVER 
+PATCH {SENAIA}/modelo  HTTP/1.1
+content-type: application/json
+
+{
+  "dadus1": "4"
+}
+###
+// @name    SERVER 
+PUT {{apiNSENAIAWdb}}/modelo  HTTP/1.1
+content-type: application/json
+
+{
+  "dadus1": "4"
+}
+###
+// @name    SERVER 
+DELETE {{apiNSENAIAWdb}}/modelo/1  HTTP/1.1
+content-type: application/json
+
+############################################
+############################################
+############################################
+############################################
+###
+###
+// @name    SERVER HTTPS
+GET {{SENAIA}}/modelo  
+###
+###
+// @name    SERVER HTTPS 
+GET {{SENAIA}}/modelo  HTTP/1.1
+###
+// @name    SERVER HTTPS 
+GET {{SENAIA}}/modelo/cll74mph10000ijm4bzqstrhv  HTTP/1.1
+###
+###
+// @name    SERVER HTTPS 
+POST {SENAIA}/modelo  
+content-type: application/json
+
+{
+  "dadus1": "4"
+}
+###
+###
+// @name    SERVER HTTPS 
+PATCH {SENAIA}/modelo/cll74x6ro0001ijm476p8ylug  
+content-type: application/json
+
+{
+  "dadus1": "4"
+}
+###
+// @name    SERVER HTTPS 
+PUT {{SENAIA}}/modelo 
+content-type: application/json
+
+{
+  "dadus1": "4"
+}
+###
+// @name    SERVER HTTPS 
+DELETE {{SENAIA}}/modelo/cll74mph10000ijm4bzqstrhv  HTTP/1.1
+content-type: application/json
+
+############################################
+############################################
+############################################
+
+### GET all usuarios USERES
+// @name findAll usuarios
+GET {{apiNLSENAIAWdb}}/coibfetecnico
+
+###
+############################################
+############################################
+############################################
+
+### POST login USER
+// @name LOCAL
+POSt {{LSENAIA}}/auth/login
+content-type: application/json
+
+{
+  "email": "john@gmail.com",
+  "username": "john",
+  "password": "changeme"
+}
+###
+###
