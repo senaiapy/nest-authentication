@@ -379,6 +379,7 @@ export class UsuariosService {
       if (!usuarioExist) throw new NotFoundException('Este uSUARIO no existe');
       //const updatedUsuario = Object.assign(usuarioExist, data);
       const saltRounds = 8;
+      //const hash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
       const sendPassword = data.password;
       //usuario.password = bcrypt.hashSync(dados, saltRounds);
       //const password = bcrypt.hashSync(dados, saltRounds);

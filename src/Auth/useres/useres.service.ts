@@ -35,23 +35,25 @@ export class UseresService {
   // }
   // -------------------------------------------------------
 
-  async findOne(mail: string): Promise<Users | undefined> {
+  async findOne(email: string): Promise<Users | undefined> {
     // Get By ID
     //    const user = await this.userRepository.findOne(
     //  { where: { username }, relations: { roles: true } });
-
-    console.log('DEBUG find');
+    let user = null;
     try {
-      const user = await this.prisma.user.findFirst({
+      user = await this.prisma.user.findFirst({
         where: {
-          email: mail,
+          email: email,
         },
       });
-      return user;
+      console.log('DEBUG findOneByMail', user);
     } catch (e: any) {
       console.log('error', e);
       throw new Error(e);
     }
+    // console.log('user4', user, email);
+
+    return user;
   }
   // -------------------------------------------------------
   async create(
@@ -59,6 +61,15 @@ export class UseresService {
     mail: string,
     passwordHash: string,
   ): Promise<Users | undefined> {
+    /*
+    if (datas.senha) {
+        const saltRounds = 8;
+        const dados = datas.senha;
+        //console.log(dados)
+        //usuario.password = bcrypt.hashSync(dados, saltRounds);
+        usuario.password = bcrypt.hashSync(dados, saltRounds);
+      }
+      */
     // Get By ID
     // const user = new User();
     // user.username = username;
@@ -79,10 +90,11 @@ export class UseresService {
       let usuarios = null;
       if (!user) {
         usuario.email = mail;
-        usuario.nome = username;
         usuario.username = username;
         usuario.password = passwordHash;
-
+        const role = new Role();
+        //role.id = 1;
+        //usuario.roles = [role];
         usuarios = await this.prisma.user.create({
           data: usuario,
         });
@@ -111,7 +123,6 @@ export class UseresService {
       let usuarios = null;
       if (user) {
         usuario.email = mail;
-        usuario.nome = username;
         usuario.username = username;
         usuario.password = passwordHash;
 

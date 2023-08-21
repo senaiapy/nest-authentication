@@ -34,3 +34,4 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 
 
 
+curl -X POST http://localhost:3333/api/v0/senaia/wdb/auth/login -d '{ "email": "marcelu@gmail.com", "username": "marcelu", "password": "123456"}' -H "Content-Type: application/json"

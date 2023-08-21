@@ -1276,4 +1276,46 @@ content-type: application/json
 ############################################
 ############################################
 ############################################
+############################################
+############################################
+############################################
 
+### POST login USER
+// @name LOCAL
+GET {{LSENAIA}}/user
+
+###
+### POST LOGIN USER
+// @name LOCAL
+POST {{LSENAIA}}/auth/login
+content-type: application/json
+
+{
+  "email": "marcelu@gmail.com",
+  "username": "marcelu",
+  "password": "123456"
+}
+###
+### POST REGISTER USER
+// @name LOCAL
+POST {{LSENAIA}}/auth/register
+content-type: application/json
+
+{
+  "email": "marcelus@gmail.com",
+  "username": "marcelu",
+  "password": "123456"
+}
+###
+### POST PASSWORD USER
+// @name LOCAL
+POST {{LSENAIA}}/auth/password
+content-type: application/json
+
+{
+  "email": "marcelu@gmail.com",
+  "username": "marcelu",
+  "password": "123456"
+}
+###
+###

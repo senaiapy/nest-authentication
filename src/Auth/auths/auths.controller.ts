@@ -26,14 +26,16 @@ export class AuthsController {
     private userService: UseresService,
   ) {}
 
-  @HttpCode(HttpStatus.OK)
+  //@HttpCode(HttpStatus.OK)
+  //@UseGuards(AuthGuard('local'))
+  @UseGuards(LocalAuthGuard)
   @Post('login')
   signIn(@Body() signInDto: Record<string, any>) {
     return this.authService.signIn(signInDto.email, signInDto.password);
   }
 
   @HttpCode(HttpStatus.OK)
-  @Post('regiter')
+  @Post('register')
   regisTer(@Body() signInDto: Record<string, any>) {
     return this.authService.regisTer(
       signInDto.username,

@@ -10,23 +10,45 @@ datasource db {
 generator dbml {
   provider = "prisma-dbml-generator"
 }
+
+enum Role {
+  User
+  Admin
+  Moderator
+  VPA
+  FRIGORIFICO
+  PROPIEDAD
+  PRODUCTOR
+  SENACSA
+  SITRAP
+  ASSOCIACION
+  PUESTOCONTROL
+  GERENTE
+  UNDEFINED
+  ADMIN
+  MANAGER
+  CLIENT
+  USER
+  ROOT
+}
+
 model User {
-  id    Int     @default(autoincrement()) @id
-  email String  @unique
-  username  String?
-  password  String?
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  username String?
+  password String?
+  roles    Role?
   //posts Post[]
 }
 
 model Post {
-  id        Int      @default(autoincrement()) @id
+  id        Int      @id @default(autoincrement())
   title     String
   content   String?
   published Boolean? @default(false)
   //author    User?    @relation(fields: [authorId], references: [id])
   authorId  Int?
 }
-
 
 // ------------------------------------------------------------------
 // --------------------------USUARIO---------------------------------

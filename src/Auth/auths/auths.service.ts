@@ -19,11 +19,19 @@ export class AuthsService {
   ) {}
   // ------------------------------------------------------------
 
-  async validateUser(mail: string, pass: string): Promise<any> {
-    const user = await this.usersService.findOne(mail);
+  async validateUser(email: string, pass: string): Promise<any> {
+    const user = await this.usersService.findOne(email);
+    // console.log('user3', user, email, password);
 
     if (user) {
-      const isMatch = await bcrypt.compare(pass, user.password);
+      const isMatch = await bcrypt.compareSync(pass, user.password);
+      //const isMatch = async (password: any, user: any) => {
+      //  if (password === user.password) {
+      //    return true;
+      //  } else {
+      //    return false;
+      //  }
+      //};
       if (!isMatch) {
         return null;
       }
@@ -34,11 +42,9 @@ export class AuthsService {
   }
   // ------------------------------------------------------------
 
-  async signIn(mail: string, pass: string): Promise<any> {
-    const user = await this.usersService.findOne(mail);
-    if (user?.password !== pass) {
-      throw new UnauthorizedException();
-    }
+  async signIn(email: string, pass: string): Promise<any> {
+    const user = await this.usersService.findOne(email);
+    // console.log('user2', email, pass);
     const { password, ...result } = user;
     // TODO: Generate a JWT and return it here
     // instead of the user object
@@ -47,11 +53,12 @@ export class AuthsService {
   // ------------------------------------------------------------
 
   async regisTer(username: string, pass: string, mail: string): Promise<any> {
-    const hash = await bcrypt.hash(pass, saltOrRounds);
-    const user = await this.usersService.create(username, mail, hash);
-    if (user?.password !== pass) {
-      throw new UnauthorizedException();
+    const users = await this.usersService.findOne(mail);
+    if (users) {
+      throw new HttpException('Username taken', HttpStatus.BAD_REQUEST);
     }
+    const hash = bcrypt.hashSync(pass, saltOrRounds);
+    const user = await this.usersService.create(username, mail, hash);
     const { password, ...result } = user;
     // TODO: Generate a JWT and return it here
     // instead of the user object
@@ -60,11 +67,8 @@ export class AuthsService {
   // ------------------------------------------------------------
 
   async passWord(username: string, pass: string, mail: string): Promise<any> {
-    const hash = await bcrypt.hash(pass, saltOrRounds);
+    const hash = bcrypt.hashSync(pass, saltOrRounds);
     const user = await this.usersService.update(username, mail, hash);
-    if (user?.password !== pass) {
-      throw new UnauthorizedException();
-    }
     const { password, ...result } = user;
     // TODO: Generate a JWT and return it here
     // instead of the user object
@@ -86,7 +90,7 @@ export class AuthsService {
     if (user) {
       throw new HttpException('Username taken', HttpStatus.BAD_REQUEST);
     }
-    const hash = await bcrypt.hash(password, saltOrRounds);
+    const hash = bcrypt.hashSync(password, saltOrRounds);
     const newUser = await this.usersService.create(username, mail, hash);
     return {
       id: newUser.id,
