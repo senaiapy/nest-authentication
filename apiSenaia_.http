@@ -7,28 +7,26 @@
 @apiSVr = http://38.242.202.1:3333/api/v0/senaia
 @apiSVlinode = http://172.104.31.117:3333/api/v0/senaia
 
-@apiSENAIA = http://24.199.119.170:3333/api/v0/senaia
-@apiSENAIAFrontUrl = http://24.199.119.170:3333/api/v0/sicoga/front
+@apiSENAIA = http://208.117.87.29:3333/api/v0/senaia
+@apiSENAIAFrontUrl = http://208.117.87.29:3333/api/v0/sicoga/front
 
-@apiSENAIAWdb = http://24.199.119.170:3333/api/v0/senaia/wdb
+@apiSENAIAWdb = http://208.117.87.29:3333/api/v0/senaia/wdb
 @apiLocalSENAIAWdb = http://localhost:3333/api/v0/senaia/wdb
 @apiLocalSENAIA = http://localhost:3333/api/v0/senaia
 
-@apiCUXO = http://24.199.119.170:3333/api/v0/senaia
-@apiCUXOWdb = http://24.199.119.170:3333/api/v0/senaia/wdb
+@apiCUXO = http://208.117.87.29:3333/api/v0/senaia
+@apiCUXOWdb = http://208.117.87.29:3333/api/v0/senaia/wdb
 @apiLocalCUXO = http://localhost:3333/api/v0/senaia
 
 #@SENAIA = https://senaiaweb.online/api/v0/senaia
-@apiNSENAIA = http://24.199.119.170:3333/api/v0/senaia
+@apiNSENAIA = http://24.199.112.85:3333/api/v0/senaia
 
-@apiNSENAIAWdb = http://24.199.119.170:3333/api/v0/senaia/wdb
+@apiNSENAIAWdb = http://24.199.112.85:3333/api/v0/senaia/wdb
 
 @apiNLSENAIAWdb = http://localhost:3333/api/v0/senaia/wdb
-
+@LSENAIA = http://localhost:3333/api/v0/senaia/wdb
 
 @SENAIA = https://senaiaweb.online/api/v0/senaia/wdb
-
-@LSENAIA = http://localhost:3333/api/v0/senaia/wdb
 
 ############################################
 ############################################
@@ -467,8 +465,9 @@ content-type: application/json
 ### get coibfes
 
 // @name   coibfes 
-GET http://24.199.119.170:3333/api/v0/senaia/wdb/coibfecoibfes  HTTP/1.1
+GET http://208.117.87.29:3333/api/v0/senaia/wdb/coibfecoibfes  HTTP/1.1
 content-type: application/json
+
 
 ### get coibfes LOCALHOST
 // @name   coibfes 
@@ -510,7 +509,6 @@ content-type: application/json
 ############################################
 
 ### update ATUALIZA UNA FRIGORIFICO
-
 // @name    FRIGORIFICO 
 PUT {{apiSENAIAWdb}}/coibfefrigorifico/8  HTTP/1.1
 content-type: application/json
@@ -522,15 +520,17 @@ content-type: application/json
  "frigorificodistrito": "undefined",
 }
 
+### update ATUALIZA UNA FRIGORIFICO
+// @name    FRIGORIFICO 
+DELETE {{apiSENAIAWdb}}/coibfefrigorifico/12  HTTP/1.1
 ############################################
 ############################################
 ############################################
 ############################################
 
 ### get  BUSCA TODOS PRODUCTORES
-
 // @name    prod 
-GET http://24.199.119.170:3333/api/v0/senaia/wdb/coibfeproductor  HTTP/1.1
+GET http://208.117.87.29:3333/api/v0/senaia/wdb/coibfeproductor  HTTP/1.1
 content-type: application/json
 
 {
@@ -539,7 +539,7 @@ content-type: application/json
 ############################################
 
 // @name   CREA PROPIEDAD 
-POST http://24.199.119.170:3333/api/v0/senaia/wdb/coibfeproductor  HTTP/1.1
+POST http://208.117.87.29:3333/api/v0/senaia/wdb/coibfeproductor  HTTP/1.1
 content-type: application/json
 
 {
@@ -551,7 +551,7 @@ content-type: application/json
     "productorstatus": "active",
     "productorlocked": "unlocked",
     "productorsitrap": "PROEB",
-    "productorservername": "24.199.119.170:3333",
+    "productorservername": "208.117.87.29:3333",
     "productordocnroprop": "8089161",
     "productordocdigprop": "6",
     "productordocorigabrev": "PY",
@@ -565,7 +565,7 @@ content-type: application/json
 ### update ATUALIZA UNA PROPIEDAD
 
 // @name    PROPIEDAD 
-PUT http://24.199.119.170:3333/api/v0/senaia/wdb/coibfeproductor/537  HTTP/1.1
+PUT http://208.117.87.29:3333/api/v0/senaia/wdb/coibfeproductor/537  HTTP/1.1
 content-type: application/json
 
 {
@@ -582,7 +582,7 @@ content-type: application/json
 ### get  BUSCA TODAS PROPIEDADS
 
 // @name    prop 
-GET http://24.199.119.170:3333/api/v0/senaia/wdb/coibfepropriedad  HTTP/1.1
+GET http://208.117.87.29:3333/api/v0/senaia/wdb/coibfepropriedad  HTTP/1.1
 content-type: application/json
 
 {
@@ -593,7 +593,7 @@ content-type: application/json
 ############################################
 
 // @name   CREA PROPIEDAD 
-POST http://24.199.119.170:3333/api/v0/senaia/wdb/coibfepropriedad  HTTP/1.1
+POST http://208.117.87.29:3333/api/v0/senaia/wdb/coibfepropriedad  HTTP/1.1
 content-type: application/json
 
 {
@@ -612,10 +612,10 @@ content-type: application/json
 ############################################
 ############################################
 
-### update ATUALIZA UNA PROPIEDAD24.199.119.170
+### update ATUALIZA UNA PROPIEDAD
 
 // @name    PROPIEDAD 
-PUT http://24.199.119.170:3333/api/v0/senaia/wdb/coibfepropriedad/258  HTTP/1.1
+PUT http://208.117.87.29:3333/api/v0/senaia/wdb/coibfepropriedad/258  HTTP/1.1
 content-type: application/json
 
 {
@@ -629,6 +629,7 @@ content-type: application/json
 ### GET all usuarios USER
 // @name findAll usuarios
 GET {{apiSENAIA}}/usuario
+
 
 ### DELETE USER
 // @name mark to remove delusuario/ 
@@ -655,6 +656,7 @@ content-type: application/json
 ### GET all usuarios USER
 // @name findAll usuarios
 GET {{apiSENAIA}}/usuario
+
 
 ### DELETE USER
 // @name mark to remove delusuario/ 
@@ -675,7 +677,7 @@ content-type: application/json
 //  "cpf": "870",
 ###########################################
 # https://senaiaweb.online/api/v0/senaia/
-# http://24.199.119.170:3333/api/v0/senaia/
+# http://24.199.112.85:3333/api/v0/senaia/
 # https://www.senaiaweb.online/api/v0/senaia/swagger
 
 // @name    prop 
@@ -713,8 +715,9 @@ content-type: application/json
 ############################################
 
 # https://senaiaweb.online/api/v0/senaia/
-# http://24.199.119.170:3333/api/v0/senaia/
+# http://24.199.112.85:3333/api/v0/senaia/
 # https://www.senaiaweb.online/api/v0/senaia/swagger
+
 
 ### CREATE usuario USERE
 // @name post usuario
@@ -755,7 +758,6 @@ GET {{apiNSENAIAWdb}}/usuario/search/telefone/0993547294
 ### GET by OBJ
 // @name get by usuario VPA
 GET {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
-
 ############################################
 
 ####
@@ -788,11 +790,10 @@ PATCH {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
 content-type: application/json
 
 {
-  "user_token": "0",
-  "user_status": "active",
+   "user_status": "active",
   "user_locked": "unlocked",
-  "user_system_type": "ROOT",
-  "Status": "ACTIVE" 
+  "user_token": "1",
+   "Status": "ACTIVE" 
 }
 
 ### UPDATE by id ACTIVATE
@@ -810,20 +811,10 @@ content-type: application/json
 
 ### DELETE USER
 // @name mark to remove delusuario/ 
-DELETE {{apiNSENAIAWdb}}/usuario/7
-
+DELETE {{apiNSENAIAWdb}}/usuario/20
 ############################################
 ############################################
-###########################################
 
-// @name    SERVER COIBFE 
-GET {{apiSENAIAWdb}}/coibfecoibfes  HTTP/1.1
-content-type: application/json
-
-{
- 
-}
-############################################
 // @name    prop 
 GET {{apiNSENAIAWdb}}/coibfecoibfes  HTTP/1.1
 content-type: application/json
@@ -911,6 +902,7 @@ GET {{apiNLSENAIAWdb}}/general  HTTP/1.1
 // @name    local 
 GET {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
 ###
+
 // @name    local 
 PUT {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
 content-type: application/json
@@ -920,29 +912,12 @@ content-type: application/json
     "5","5","3"
   ]
 }
+###
 
-###
-###
-// @name    local 
-PUT {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
-content-type: application/json
-
-{
-  "generalId": "1"
-}
-###
-###
-// @name    SERVER 
-PUT {{apiNSENAIAWdb}}/general/1  HTTP/1.1
-content-type: application/json
-
-{
-  "generalId": "1"
-}
-###
 // @name    local 
 DELETE {{apiNLSENAIAWdb}}/general/1  HTTP/1.1
 content-type: application/json
+
 
 ############################################
 ############################################
@@ -969,65 +944,9 @@ content-type: application/json
 ############################################
 
 // @name    prop 
-GET {{apiNSENAIAWdb}}/categoryuserdump  HTTP/1.1
-content-type: application/json
-############################################
-
-// @name    prop 
 GET {{apiNSENAIAWdb}}/generaldump  HTTP/1.1
 content-type: application/json
 
-############################################
-############################################
-############################################
-### GET all usuarios USERES
-// @name findAll usuarios
-GET {{apiNSENAIAWdb}}/usuarios
-
-### GET by OBJ
-// @name get by usuario VPA
-GET {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
-
-############################################
-### UPDATE by OBJ VPA
-// @name get by usuario VPA
-PATCH {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
-// @name get by usuario
-content-type: application/json
-
-{
-  "user_token": "0",
-  "user_status": "active",
-  "user_locked": "unlocked",
-  "user_system_type": "VPA",
-  "Status": "ACTIVE" 
-}
-
-############################################
-############################################
-############################################
-
-############################################
-### GET by id
-// @name get by usuario
-GET {{LSENAIA}}/usuarios
-############################################
-
-############################################
-### GET by id
-// @name get by usuario
-GET {{SENAIA}}/usuarios
-############################################
-// @name get by usuario
-PATCH {{apiLocalSENAIA}}/usuario/one/20
-content-type: application/json
-
-{
-  "user_token": "0",    
-  "user_status": "active",    
-  "user_locked": "unlocked"    
-}
-############################################
 
 ############################################
 ############################################
@@ -1134,146 +1053,35 @@ content-type: application/json
 ############################################
 ############################################
 ############################################
-############################################
-############################################
-############################################
-### GET all usuarios SERVER
-// @name get all
-GET {{SENAIA}}/usuarios
 
+### GET all usuarios USERES
+// @name findAll usuarios
+GET {{apiNLSENAIAWdb}}/coibfetecnico
+
+###
 ############################################
-### GET by id
-// @name get by usuario LOCAL
-GET {{LSENAIA}}/usuarios
+############################################
 ############################################
 
-### CREATE usuario SERVER
-// @name create usuario
-POST {{SENAIA}}/usuario
+### POST login USER
+// @name LOCAL
+GET {{LSENAIA}}/user
 content-type: application/json
 
 {
-  "nome": "Andrea Anjos",
-    "email": "andrea@gmail.com",
-    "password": "$2b$08$RAL/igaXvMKPvlBRixtmLetG8iH2xegymsRdAqK7q0norVeEdOVca",
-    "telefone": "099354729",
-    "cpf": "24242",
-    "user_pos_id": "1234567890",
-    "user_company": "estanciaya",
-    "user_system_type": "GERENTE",
-    "user_status": "inactive",
-    "user_locked": "locked",
-    "user_key_hardware": "MzAwNzREOEEzMTk1W29iamVjdCBPYmplY3Rd",
-    "user_level_access": "10",
-    "user_vpa": "24242",
-    "user_token": "0",
-    "Status": "ACTIVE"
+ 
 }
-##############################
-
-### CREATE usuario LOCAL
-// @name create usuario
-POST {{LSENAIA}}/usuario
+###
+###
+### POST login USER
+// @name LOCAL
+POSt {{LSENAIA}}/auth/login
 content-type: application/json
 
 {
-  "nome": "Andrea Anjos",
-    "email": "andreatanjos@gmail.com",
-    "password": "$2b$08$RAL/igaXvMKPvlBRixtmLetG8iH2xegymsRdAqK7q0norVeEdOVca",
-    "telefone": "0993547296",
-    "cpf": "242424",
-    "user_pos_id": "1234567890",
-    "user_company": "estanciaya",
-    "user_system_type": "GERENTE",
-    "user_status": "inactive",
-    "user_locked": "locked",
-    "user_key_hardware": "MzAwNzREOEEzMTk1W29iamVjdCBPYmplY3Rd",
-    "user_level_access": "10",
-    "user_vpa": "242424",
-    "user_token": "0",
-    "Status": "ACTIVE"
+  "email": "marcelu@gmail.com",
+  "username": "marcelu",
+  "password": "123456"
 }
-
-############################################
-// @name UPDATE usuario SERVER
-PUT {{SENAIA}}/usuario/20
-content-type: application/json
-
-{
-  "user_token": "0",    
-  "user_status": "active",    
-  "user_locked": "unlocked"    
-}
-############################################
-// @name UPDATE usuario LOCAL
-PATCH {{LSENAIA}}/usuario/20
-content-type: application/json
-
-{
-  "user_token": "0",    
-  "user_status": "active",    
-  "user_locked": "unlocked"    
-}
-############################################
-
-### DELETE by id SERVER
-// @name get by usuario
-DELETE {{SENAIA}}/usuario/21
-
-############################################
-
-### DELETE by id LOCAL
-// @name get by usuario
-DELETE {{LSENAIA}}/usuario/21
-
-############################################
-############################################
-############################################
-############################################
-
-### GET by OBJ SERVER
-// @name get by usuario VPA
-GET {{SENAIA}}/usuario/search/user_vpa/1234
-
-############################################
-
-### GET by OBJ LOCAL
-// @name get by usuario VPA
-GET {{LSENAIA}}/usuario/search/user_vpa/1234
-
-############################################
-### UPDATE by OBJ vpa SERVER
-// @name get by usuario VPA
-PATCH {{SENAIA}}/usuario/search/user_vpa/1234
-// @name get by usuario
-content-type: application/json
-
-{
-  "user_token": "0",
-  "user_status": "active",
-  "user_locked": "unlocked",
-  "user_pos_id": "1234",
-  "user_company": "",
-  "user_system_type": "ROOT",
-  "Status": "ACTIVE" 
-}
-############################################
-### UPDATE by OBJ vpa LOCAL
-// @name get by usuario VPA
-PATCH {{LSENAIA}}/usuario/search/user_vpa/1234
-// @name get by usuario
-content-type: application/json
-
-{
-  "user_token": "0",
-  "user_status": "active",
-  "user_locked": "unlocked",
-  "user_system_type": "ROOT",
-  "Status": "ACTIVE" 
-}
-
-############################################
-############################################
-############################################
-############################################
-
+###
+###
