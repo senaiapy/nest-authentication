@@ -11,10 +11,16 @@ import { Role } from '../auths/role.entity';
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
-  id: number;
+  id?: number;
 
   @Column()
   username: string;
+
+  @Column()
+  nome?: string;
+
+  @Column()
+  email?: string;
 
   @Column()
   password: string;

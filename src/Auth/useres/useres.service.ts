@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Inject, Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
@@ -55,8 +56,8 @@ export class UseresService {
   // -------------------------------------------------------
   async create(
     username: string,
-    password: string,
     mail: string,
+    passwordHash: string,
   ): Promise<Users | undefined> {
     // Get By ID
     // const user = new User();
@@ -74,7 +75,19 @@ export class UseresService {
           email: mail,
         },
       });
-      return user;
+      const usuario: UserDto = new UserDto();
+      let usuarios = null;
+      if (!user) {
+        usuario.email = mail;
+        usuario.nome = username;
+        usuario.username = username;
+        usuario.password = passwordHash;
+
+        usuarios = await this.prisma.user.create({
+          data: usuario,
+        });
+      }
+      return usuarios;
     } catch (e: any) {
       console.log('error', e);
       throw new Error(e);
@@ -83,8 +96,8 @@ export class UseresService {
   // -------------------------------------------------------
   async update(
     username: string,
-    password: string,
     mail: string,
+    passwordHash: string,
   ): Promise<Users | undefined> {
     // Get By ID
     console.log('DEBUG find');
@@ -94,7 +107,23 @@ export class UseresService {
           email: mail,
         },
       });
-      return user;
+      const usuario: UserDto = new UserDto();
+      let usuarios = null;
+      if (user) {
+        usuario.email = mail;
+        usuario.nome = username;
+        usuario.username = username;
+        usuario.password = passwordHash;
+
+        usuarios = await this.prisma.user.update({
+          data: usuario,
+          where: {
+            id: user.id,
+          },
+        });
+      }
+
+      return usuarios;
     } catch (e: any) {
       console.log('error', e);
       throw new Error(e);
@@ -116,7 +145,6 @@ export class UseresService {
       }
 
       const userDto = new UserDto();
-      userDto.id = user.id;
       userDto.username = user.username;
       return userDto;
     } catch (e: any) {
