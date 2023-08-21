@@ -53,7 +53,11 @@ export class UseresService {
     }
   }
   // -------------------------------------------------------
-  async create(mail: string, password: string): Promise<Users | undefined> {
+  async create(
+    username: string,
+    password: string,
+    mail: string,
+  ): Promise<Users | undefined> {
     // Get By ID
     // const user = new User();
     // user.username = username;
@@ -77,7 +81,11 @@ export class UseresService {
     }
   }
   // -------------------------------------------------------
-  async update(mail: string, password: string): Promise<Users | undefined> {
+  async update(
+    username: string,
+    password: string,
+    mail: string,
+  ): Promise<Users | undefined> {
     // Get By ID
     console.log('DEBUG find');
     try {

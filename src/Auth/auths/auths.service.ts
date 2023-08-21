@@ -19,8 +19,8 @@ export class AuthsService {
   ) {}
   // ------------------------------------------------------------
 
-  async validateUser(username: string, pass: string): Promise<any> {
-    const user = await this.usersService.findOne(username);
+  async validateUser(mail: string, pass: string): Promise<any> {
+    const user = await this.usersService.findOne(mail);
 
     if (user) {
       const isMatch = await bcrypt.compare(pass, user.password);
@@ -34,8 +34,8 @@ export class AuthsService {
   }
   // ------------------------------------------------------------
 
-  async signIn(username: string, pass: string): Promise<any> {
-    const user = await this.usersService.findOne(username);
+  async signIn(mail: string, pass: string): Promise<any> {
+    const user = await this.usersService.findOne(mail);
     if (user?.password !== pass) {
       throw new UnauthorizedException();
     }
@@ -46,9 +46,9 @@ export class AuthsService {
   }
   // ------------------------------------------------------------
 
-  async regisTer(username: string, pass: string): Promise<any> {
+  async regisTer(username: string, pass: string, mail: string): Promise<any> {
     const hash = await bcrypt.hash(pass, saltOrRounds);
-    const user = await this.usersService.create(username, hash);
+    const user = await this.usersService.create(username, mail, hash);
     if (user?.password !== pass) {
       throw new UnauthorizedException();
     }
@@ -59,9 +59,9 @@ export class AuthsService {
   }
   // ------------------------------------------------------------
 
-  async passWord(username: string, pass: string): Promise<any> {
+  async passWord(username: string, pass: string, mail: string): Promise<any> {
     const hash = await bcrypt.hash(pass, saltOrRounds);
-    const user = await this.usersService.update(username, hash);
+    const user = await this.usersService.update(username, mail, hash);
     if (user?.password !== pass) {
       throw new UnauthorizedException();
     }
@@ -74,20 +74,20 @@ export class AuthsService {
   // ------------------------------------------------------------
 
   async login(user: any) {
-    const payload = { username: user.username, sub: user.id };
+    const payload = { email: user.email, sub: user.id };
     return {
       token: this.jwtService.sign(payload),
     };
   }
   // ------------------------------------------------------------
 
-  async signup(username: string, password: string): Promise<any> {
-    const user = await this.usersService.findOne(username);
+  async signup(username: string, password: string, mail: string): Promise<any> {
+    const user = await this.usersService.findOne(mail);
     if (user) {
       throw new HttpException('Username taken', HttpStatus.BAD_REQUEST);
     }
     const hash = await bcrypt.hash(password, saltOrRounds);
-    const newUser = await this.usersService.create(username, hash);
+    const newUser = await this.usersService.create(username, mail, hash);
     return {
       id: newUser.id,
     };

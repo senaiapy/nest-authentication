@@ -35,13 +35,21 @@ export class AuthsController {
   @HttpCode(HttpStatus.OK)
   @Post('regiter')
   regisTer(@Body() signInDto: Record<string, any>) {
-    return this.authService.regisTer(signInDto.email, signInDto.password);
+    return this.authService.regisTer(
+      signInDto.username,
+      signInDto.password,
+      signInDto.email,
+    );
   }
 
   @HttpCode(HttpStatus.OK)
   @Post('password')
   passWord(@Body() signInDto: Record<string, any>) {
-    return this.authService.passWord(signInDto.email, signInDto.password);
+    return this.authService.passWord(
+      signInDto.username,
+      signInDto.password,
+      signInDto.email,
+    );
   }
   // ------------------------------------------------------------------------
 
@@ -53,7 +61,11 @@ export class AuthsController {
 
   @Post('signup')
   async signup(@Body() signUpDto: SignUpDto) {
-    return this.authService.signup(signUpDto.username, signUpDto.password);
+    return this.authService.signup(
+      signUpDto.username,
+      signUpDto.password,
+      signUpDto.email,
+    );
   }
 
   @UseGuards(JwtAuthGuard)
