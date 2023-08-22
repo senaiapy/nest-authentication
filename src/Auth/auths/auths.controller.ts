@@ -8,6 +8,7 @@ import {
   Body,
   HttpCode,
   HttpStatus,
+  Patch,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthsService } from './auths.service';
@@ -63,6 +64,7 @@ export class AuthsController {
     return this.authService.login(req.user);
   }
 
+  @Roles(ERole.User)
   @Post('signup')
   async signup(@Body() signUpDto: SignUpDto) {
     return this.authService.signup(

@@ -2,6 +2,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Inject, Injectable } from '@nestjs/common';
 import { Role } from '../auths/role.entity';
+import { ERole } from '../auths/role.enum';
+import { TRole } from '../auths/role.type';
+
 import { UseresDto } from './useres.dto';
 import { PrismaService } from '../../prisma/prisma.service';
 
@@ -97,12 +100,24 @@ export class UseresService {
         const role = new Role();
         role.id = 1;
         //usuario.roles = [role];
+        //usuario.roles = [role];
         usuario.user_vpa = user_vpa;
         usuario.cpf = user_vpa;
         usuario.telefone = telefone;
 
         usuarios = await this.prisma.usuario.create({
-          data: usuario,
+          //data: usuario,
+          data: {
+            username: usuario.username,
+            nome: usuario.username,
+            user_name: usuario.username,
+            user_vpa: usuario.user_vpa,
+            cpf: usuario.user_vpa,
+            telefone: usuario.telefone,
+            email: usuario.email,
+            password: usuario.password,
+            roles: [/*ERole.ADMIN, ERole.CLIENT*/ ERole.USER],
+          },
         });
       }
       return usuarios;
@@ -146,6 +161,8 @@ export class UseresService {
       throw new Error(e);
     }
   }
+  // -------------------------------------------------------
+  // -------------------------------------------------------
   // -------------------------------------------------------
   async getProfile(mail: string): Promise<UseresDto | undefined> {
     //const user = await this.userRepository.findOne({ where: { username } });

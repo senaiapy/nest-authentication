@@ -287,11 +287,11 @@ POST {{LSENAIA}}/auth/register
 content-type: application/json
 
 {
-  "username": "Andrea Anjos",
-  "email": "andreatanjoss@gmail.com",
+  "username": "Andrea",
+  "email": "andreas2@gmail.com",
   "password": "123456",
   "telefone": "0993547296",
-  "user_vpa": "2424244",
+  "user_vpa": "13332",
   "user_system_type": "GERENTE"
 }
 ###
