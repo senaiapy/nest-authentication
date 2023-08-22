@@ -57,7 +57,7 @@ export class AuthsController {
 
   @UseGuards(LocalAuthGuard)
   @Post('signin')
-  async login(@Request() req) {
+  async login(@Request() req: any) {
     return this.authService.login(req.user);
   }
 
@@ -71,8 +71,9 @@ export class AuthsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Get('test/profile')
-  async getProfile(@Request() req) {
+  @Get('profile')
+  async getProfile(@Request() req: any) {
+    //console.log('REQ', req.user);
     const user = await this.userService.getProfile(req.user.email);
     return req.user;
   }

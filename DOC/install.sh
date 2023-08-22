@@ -35,3 +35,5 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 
 
 curl -X POST http://localhost:3333/api/v0/senaia/wdb/auth/login -d '{ "email": "marcelu@gmail.com", "username": "marcelu", "password": "123456"}' -H "Content-Type: application/json"
+
+curl -X GET http://localhost:3333/api/v0/senaia/wdb/auth/profile -H "Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlbHVAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE2OTI2NTg3MTAsImV4cCI6MTY5MjY2NDcxMH0.C_msWI8kVbp-_xNfVm-3kf89DAx-1eYz_LpSHz4Hbr0"

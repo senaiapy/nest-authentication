@@ -30,6 +30,7 @@
 
 @LSENAIA = http://localhost:3333/api/v0/senaia/wdb
 
+@token = {{tokenrequest.response.body.access_token}}
 ############################################
 ############################################
 ############################################
@@ -1317,5 +1318,31 @@ content-type: application/json
   "username": "marcelu",
   "password": "123456"
 }
+###
+### POST GENERATE TOKEN USER
+// @name LOCAL
+POST {{LSENAIA}}/auth/signin
+content-type: application/json
+Authorization: {{token}}
+
+{
+  "email": "marcelu@gmail.com",
+  "username": "marcelu",
+  "password": "123456"
+}
+###
+### GET TEST TOKEN USER
+// @name LOCAL
+GET {{LSENAIA}}/auth/profile
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlbHVAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE2OTI2NjQ5ODQsImV4cCI6MTY5MjY3MDk4NH0.WikigcBvRGsfPB99Pmdc-eraW_gBBwK18YYdmENP07c
+
+###
+### GET TEST TOKEN USER
+// @name LOCAL
+GET {{LSENAIA}}/auth/test/user
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlbHVAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE2OTI2NjQ5ODQsImV4cCI6MTY5MjY3MDk4NH0.WikigcBvRGsfPB99Pmdc-eraW_gBBwK18YYdmENP07c
+
 ###
 ###
