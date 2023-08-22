@@ -10,13 +10,13 @@ export type Post = any;
 export class PostsService {
   constructor(private prisma: PrismaService) {}
 
-  async create(createUserDto: CreatePostDto) {
+  async create(createPostDto: CreatePostDto) {
     if (process.env.DEBUG === 'true') {
-      console.log('DEBUG create', createUserDto);
+      console.log('DEBUG create', createPostDto);
     }
     try {
       const result = await this.prisma.post.create({
-        data: createUserDto,
+        data: createPostDto,
       });
       return result;
     } catch (e: any) {
@@ -57,13 +57,13 @@ export class PostsService {
   }
   // -------------------------------------------------------
 
-  async update(id: number, updateUserDto: UpdatePostDto) {
+  async update(id: number, updatePostDto: UpdatePostDto) {
     if (process.env.DEBUG === 'true') {
       console.log('DEBUG update');
     }
     try {
       const result = await this.prisma.post.update({
-        data: updateUserDto,
+        data: updatePostDto,
         where: {
           id: id,
         },

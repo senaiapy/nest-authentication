@@ -3,4 +3,6 @@ export class SignUpDto {
   email: string;
   username: string;
   password: string;
+  user_vpa: string;
+  telefone: string;
 }

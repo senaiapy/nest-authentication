@@ -128,5 +128,8 @@ model Usuario {
   user_issinc            String? @default("")
   counter                Int?    @default(0)
 
+  username               String? @default("")
+  roles                  Role[] @default(dbgenerated())
+
   @@map("usuarios")
 }

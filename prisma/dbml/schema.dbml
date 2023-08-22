@@ -7,6 +7,7 @@ Table User {
   email String [unique, not null]
   username String
   password String
+  roles Role
 }
 
 Table Post {
@@ -86,4 +87,27 @@ Table usuarios {
   servicos String [default: '']
   user_issinc String [default: '']
   counter Int [default: 0]
+  username String [default: '']
+  roles Role[] [not null]
+}
+
+Enum Role {
+  User
+  Admin
+  Moderator
+  VPA
+  FRIGORIFICO
+  PROPIEDAD
+  PRODUCTOR
+  SENACSA
+  SITRAP
+  ASSOCIACION
+  PUESTOCONTROL
+  GERENTE
+  UNDEFINED
+  ADMIN
+  MANAGER
+  CLIENT
+  USER
+  ROOT
 }

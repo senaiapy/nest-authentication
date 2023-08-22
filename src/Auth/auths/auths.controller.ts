@@ -41,6 +41,8 @@ export class AuthsController {
       signInDto.username,
       signInDto.password,
       signInDto.email,
+      signInDto.user_vpa,
+      signInDto.telefone,
     );
   }
 
@@ -67,6 +69,8 @@ export class AuthsController {
       signUpDto.username,
       signUpDto.password,
       signUpDto.email,
+      signUpDto.user_vpa,
+      signUpDto.telefone,
     );
   }
 

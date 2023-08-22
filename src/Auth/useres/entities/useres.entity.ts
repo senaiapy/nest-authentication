@@ -1,11 +1,22 @@
-import { Role } from '../auths/role.entity';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+// ###########################################
+// #  www.pyfoundation.org                   #
+// #  Eng Marcelo Anjos                      #
+// #  marcelu.phd@gmail.com                  #
+// #  23/01/2022                             #
+// ###########################################
 
-export class UseresDto {
+import { ObjectType, Field } from '@nestjs/graphql';
+import { Role } from '../../auths/role.entity';
+
+@ObjectType()
+export class Useres {
+  @Field()
   ids?: string;
   user_id?: string;
   nome?: string;
-  email: string;
-  password: string;
+  email?: string;
+  password?: string;
   senha?: string;
   telefone?: string;
   cpf?: string;

@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Inject, Injectable } from '@nestjs/common';
-import { Repository } from 'typeorm';
 import { Role } from '../auths/role.entity';
-import { UserDto } from './useres.dto';
-import { User } from './useres.entity';
+import { UseresDto } from './useres.dto';
 import { PrismaService } from '../../prisma/prisma.service';
 
 // This should be a real class/interface representing a user entity
-export type Users = any;
+export type Useres = any;
 
 @Injectable()
 export class UseresService {
@@ -31,17 +29,17 @@ export class UseresService {
   ];
 
   // async findOne(username: string): Promise<Users | undefined> {
-  //   return this.users.find((user) => user.username === username);
+  //   return this.users.find((user) => usuario.username === username);
   // }
   // -------------------------------------------------------
 
-  async findOne(email: string): Promise<Users | undefined> {
+  async findOne(email: string): Promise<UseresDto | undefined> {
     // Get By ID
     //    const user = await this.userRepository.findOne(
     //  { where: { username }, relations: { roles: true } });
     let user = null;
     try {
-      user = await this.prisma.user.findFirst({
+      user = await this.prisma.usuario.findFirst({
         where: {
           email: email,
         },
@@ -60,7 +58,9 @@ export class UseresService {
     username: string,
     mail: string,
     passwordHash: string,
-  ): Promise<Users | undefined> {
+    user_vpa: string,
+    telefone: string,
+  ): Promise<Useres | undefined> {
     /*
     if (datas.senha) {
         const saltRounds = 8;
@@ -72,30 +72,36 @@ export class UseresService {
       */
     // Get By ID
     // const user = new User();
-    // user.username = username;
-    // user.password = password;
+    // usuario.username = username;
+    // usuario.password = password;
     // const role = new Role();
     // role.id = 1;
-    // user.roles = [role];
+    // usuario.roles = [role];
     // await this.userRepository.save(user);
     // return user;
     console.log('DEBUG find');
     try {
-      const user = await this.prisma.user.findFirst({
+      const user = await this.prisma.usuario.findFirst({
         where: {
           email: mail,
         },
       });
-      const usuario: UserDto = new UserDto();
+      const usuario: Useres = new UseresDto();
       let usuarios = null;
       if (!user) {
         usuario.email = mail;
         usuario.username = username;
+        usuario.nome = username;
+        usuario.user_name = username;
         usuario.password = passwordHash;
         const role = new Role();
-        //role.id = 1;
+        role.id = 1;
         //usuario.roles = [role];
-        usuarios = await this.prisma.user.create({
+        usuario.user_vpa = user_vpa;
+        usuario.cpf = user_vpa;
+        usuario.telefone = telefone;
+
+        usuarios = await this.prisma.usuario.create({
           data: usuario,
         });
       }
@@ -110,26 +116,26 @@ export class UseresService {
     username: string,
     mail: string,
     passwordHash: string,
-  ): Promise<Users | undefined> {
+  ): Promise<UseresDto | undefined> {
     // Get By ID
     console.log('DEBUG find');
     try {
-      const user = await this.prisma.user.findFirst({
+      const user = await this.prisma.usuario.findFirst({
         where: {
           email: mail,
         },
       });
-      const usuario: UserDto = new UserDto();
+      const usuario: Useres = new UseresDto();
       let usuarios = null;
       if (user) {
         usuario.email = mail;
         usuario.username = username;
         usuario.password = passwordHash;
 
-        usuarios = await this.prisma.user.update({
+        usuarios = await this.prisma.usuario.update({
           data: usuario,
           where: {
-            id: user.id,
+            email: usuario.email,
           },
         });
       }
@@ -141,11 +147,11 @@ export class UseresService {
     }
   }
   // -------------------------------------------------------
-  async getProfile(mail: string): Promise<UserDto | undefined> {
+  async getProfile(mail: string): Promise<UseresDto | undefined> {
     //const user = await this.userRepository.findOne({ where: { username } });
 
     try {
-      const user = await this.prisma.user.findFirst({
+      const user = await this.prisma.usuario.findFirst({
         where: {
           email: mail,
         },
@@ -155,7 +161,7 @@ export class UseresService {
         return undefined;
       }
 
-      const userDto = new UserDto();
+      const userDto = new UseresDto();
       userDto.username = user.username;
       return userDto;
     } catch (e: any) {

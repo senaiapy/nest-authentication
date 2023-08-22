@@ -52,13 +52,25 @@ export class AuthsService {
   }
   // ------------------------------------------------------------
 
-  async regisTer(username: string, pass: string, mail: string): Promise<any> {
+  async regisTer(
+    username: string,
+    pass: string,
+    mail: string,
+    user_vpa: string,
+    telefone: string,
+  ): Promise<any> {
     const users = await this.usersService.findOne(mail);
     if (users) {
       throw new HttpException('Username taken', HttpStatus.BAD_REQUEST);
     }
     const hash = bcrypt.hashSync(pass, saltOrRounds);
-    const user = await this.usersService.create(username, mail, hash);
+    const user = await this.usersService.create(
+      username,
+      mail,
+      hash,
+      user_vpa,
+      telefone,
+    );
     const { password, ...result } = user;
     // TODO: Generate a JWT and return it here
     // instead of the user object
@@ -85,13 +97,25 @@ export class AuthsService {
   }
   // ------------------------------------------------------------
 
-  async signup(username: string, password: string, mail: string): Promise<any> {
+  async signup(
+    username: string,
+    password: string,
+    mail: string,
+    user_vpa: string,
+    telefone: string,
+  ): Promise<any> {
     const user = await this.usersService.findOne(mail);
     if (user) {
       throw new HttpException('Username taken', HttpStatus.BAD_REQUEST);
     }
     const hash = bcrypt.hashSync(password, saltOrRounds);
-    const newUser = await this.usersService.create(username, mail, hash);
+    const newUser = await this.usersService.create(
+      username,
+      mail,
+      hash,
+      user_vpa,
+      telefone,
+    );
     return {
       id: newUser.id,
     };

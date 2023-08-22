@@ -1,0 +1,357 @@
+
+@apiSenaia = http://pyfoundation.online:3333/api/v0/senaia
+
+@apiLocalSenaiaUrl = http://localhost:3333/api/v0/senaia
+@apiLocalFrontUrl = http://localhost:3333/api/v0/sicoga/front
+
+@apiSVr = http://38.242.202.1:3333/api/v0/senaia
+@apiSVlinode = http://172.104.31.117:3333/api/v0/senaia
+
+@apiSENAIA = http://24.199.119.170:3333/api/v0/senaia
+@apiSENAIAFrontUrl = http://24.199.119.170:3333/api/v0/sicoga/front
+
+@apiSENAIAWdb = http://24.199.119.170:3333/api/v0/senaia/wdb
+@apiLocalSENAIAWdb = http://localhost:3333/api/v0/senaia/wdb
+@apiLocalSENAIA = http://localhost:3333/api/v0/senaia
+
+@apiCUXO = http://24.199.119.170:3333/api/v0/senaia
+@apiCUXOWdb = http://24.199.119.170:3333/api/v0/senaia/wdb
+@apiLocalCUXO = http://localhost:3333/api/v0/senaia
+
+#@SENAIA = https://senaiaweb.online/api/v0/senaia
+@apiNSENAIA = http://24.199.119.170:3333/api/v0/senaia
+
+@apiNSENAIAWdb = http://24.199.119.170:3333/api/v0/senaia/wdb
+
+@apiNLSENAIAWdb = http://localhost:3333/api/v0/senaia/wdb
+
+
+@SENAIA = https://senaiaweb.online/api/v0/senaia/wdb
+
+@LSENAIA = http://localhost:3333/api/v0/senaia/wdb
+
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+
+// @name    prop 
+GET {{apiNSENAIAWdb}}/generaldump  HTTP/1.1
+content-type: application/json
+
+############################################
+############################################
+############################################
+### GET all usuarios USERES
+// @name findAll usuarios
+GET {{apiNSENAIAWdb}}/usuarios
+
+### GET by OBJ
+// @name get by usuario VPA
+GET {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
+
+############################################
+### UPDATE by OBJ VPA
+// @name get by usuario VPA
+PATCH {{apiNSENAIAWdb}}/usuario/search/user_vpa/1234
+// @name get by usuario
+content-type: application/json
+
+{
+  "user_token": "0",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_system_type": "VPA",
+  "Status": "ACTIVE" 
+}
+
+############################################
+############################################
+############################################
+### UPDATE by OBJ VPA
+// @name get by usuario VPA
+PATCH {{LSENAIA}}/usuario/search/user_vpa/242424
+// @name get by usuario
+content-type: application/json
+
+{
+  "user_token": "0",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_system_type": "VPA",
+  "Status": "ACTIVE" 
+}
+
+############################################
+############################################
+### GET by id
+// @name get by usuario
+GET {{LSENAIA}}/usuarios
+############################################
+
+############################################
+### GET by id
+// @name get by usuario
+GET {{SENAIA}}/usuarios
+############################################
+// @name get by usuario
+PATCH {{apiLocalSENAIA}}/usuario/one/20
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+############################################
+
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+### GET all usuarios SERVER
+// @name get all
+GET {{SENAIA}}/usuarios
+
+############################################
+### GET by id
+// @name get by usuario LOCAL
+GET {{LSENAIA}}/usuarios
+############################################
+
+### CREATE usuario SERVER
+// @name create usuario
+POST {{SENAIA}}/usuario
+content-type: application/json
+
+{
+  "nome": "Andrea Anjos",
+    "email": "andrea@gmail.com",
+    "password": "$2b$08$RAL/igaXvMKPvlBRixtmLetG8iH2xegymsRdAqK7q0norVeEdOVca",
+    "telefone": "099354729",
+    "cpf": "24242",
+    "user_pos_id": "1234567890",
+    "user_company": "estanciaya",
+    "user_system_type": "GERENTE",
+    "user_status": "inactive",
+    "user_locked": "locked",
+    "user_key_hardware": "MzAwNzREOEEzMTk1W29iamVjdCBPYmplY3Rd",
+    "user_level_access": "10",
+    "user_vpa": "24242",
+    "user_token": "0",
+    "Status": "ACTIVE"
+}
+##############################
+
+### CREATE usuario LOCAL
+// @name create usuario
+POST {{LSENAIA}}/usuario
+content-type: application/json
+
+{
+  "nome": "Andrea Anjos",
+    "email": "andreatanjoss@gmail.com",
+    "password": "$2b$08$RAL/igaXvMKPvlBRixtmLetG8iH2xegymsRdAqK7q0norVeEdOVca",
+    "telefone": "0993547296",
+    "cpf": "242424",
+    "user_pos_id": "1234567890",
+    "user_company": "estanciaya",
+    "user_system_type": "GERENTE",
+    "user_status": "inactive",
+    "user_locked": "locked",
+    "user_key_hardware": "MzAwNzREOEEzMTk1W29iamVjdCBPYmplY3Rd",
+    "user_level_access": "10",
+    "user_vpa": "2424244",
+    "user_token": "0",
+    "Status": "ACTIVE"
+}
+
+############################################
+// @name UPDATE usuario SERVER
+PUT {{SENAIA}}/usuario/20
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+############################################
+// @name UPDATE usuario LOCAL
+PATCH {{LSENAIA}}/usuario/20
+content-type: application/json
+
+{
+  "user_token": "0",    
+  "user_status": "active",    
+  "user_locked": "unlocked"    
+}
+############################################
+
+### DELETE by id SERVER
+// @name get by usuario
+DELETE {{SENAIA}}/usuario/21
+
+############################################
+
+### DELETE by id LOCAL
+// @name get by usuario
+DELETE {{LSENAIA}}/usuario/21
+
+############################################
+############################################
+############################################
+############################################
+
+### GET by OBJ SERVER
+// @name get by usuario VPA
+GET {{SENAIA}}/usuario/search/user_vpa/1234
+
+############################################
+
+### GET by OBJ LOCAL
+// @name get by usuario VPA
+GET {{LSENAIA}}/usuario/search/user_vpa/1234
+
+############################################
+### UPDATE by OBJ vpa SERVER
+// @name get by usuario VPA
+PATCH {{SENAIA}}/usuario/search/user_vpa/1234
+// @name get by usuario
+content-type: application/json
+
+{
+  "user_token": "0",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_pos_id": "1234",
+  "user_company": "",
+  "user_system_type": "ROOT",
+  "Status": "ACTIVE" 
+}
+############################################
+### UPDATE by OBJ vpa LOCAL
+// @name get by usuario VPA
+PATCH {{LSENAIA}}/usuario/search/user_vpa/1234
+// @name get by usuario
+content-type: application/json
+
+{
+  "user_token": "0",
+  "user_status": "active",
+  "user_locked": "unlocked",
+  "user_system_type": "ROOT",
+  "Status": "ACTIVE" 
+}
+
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+############################################
+###
+### POST REGISTER USER
+// @name REGISTER
+POST {{LSENAIA}}/auth/register
+content-type: application/json
+
+{
+  "nome": "Andrea Anjos",
+  "username": "Andrea Anjos",
+  "email": "andreatanjos@gmail.com",
+  "password": "123456",
+  "telefone": "0993547296",
+  "user_pos_id": "1234567890",
+  "user_company": "estanciaya",
+  "user_system_type": "GERENTE",
+  "user_status": "inactive",
+  "user_locked": "locked",
+  "user_key_hardware": "MzAwNzREOEEzMTk1W29iamVjdCBPYmplY3Rd",
+  "user_level_access": "10",
+  "user_vpa": "242424",
+  "user_token": "0",
+  "Status": "ACTIVE"
+}
+###
+###
+###
+### POST REGISTER USER
+// @name SIMPLE_REGISTER
+POST {{LSENAIA}}/auth/register
+content-type: application/json
+
+{
+  "username": "Andrea Anjos",
+  "email": "andreatanjoss@gmail.com",
+  "password": "123456",
+  "telefone": "0993547296",
+  "user_vpa": "2424244",
+  "user_system_type": "GERENTE"
+}
+###
+###
+### GET ALL USER
+// @name LOCAL
+GET {{LSENAIA}}/usuarios
+
+###
+### POST LOGIN USER
+// @name LOCAL
+POST {{LSENAIA}}/auth/login
+content-type: application/json
+
+{
+  "email": "andreatanjoss@gmail.com",
+  "username": "Andrea Anjos",
+  "password": "123456"
+}
+
+####
+#### POST PASSWORD USER
+
+// @name LOCAL
+POST {{LSENAIA}}/auth/password
+content-type: application/json
+
+{
+  "email": "andreatanjoss@gmail.com",
+  "username": "Andrea dos Anjos",
+  "password": "123456"
+}
+###
+### POST GENERATE TOKEN USER
+// @name tokenrequest
+POST {{LSENAIA}}/auth/signin
+content-type: application/json
+Authorization: {{token}}
+
+{
+  "email": "andreatanjoss@gmail.com",
+  "username": "Andrea dos Anjos",
+  "password": "123456"
+}
+###
+@token = {{tokenrequest.response.body.token}}
+
+### GET TEST TOKEN USER
+// @name LOCAL
+GET {{LSENAIA}}/auth/profile
+content-type: application/json
+Authorization: Bearer {{token}}
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hcmNlbHVAZ21haWwuY29tIiwic3ViIjoxLCJpYXQiOjE2OTI2NjQ5ODQsImV4cCI6MTY5MjY3MDk4NH0.WikigcBvRGsfPB99Pmdc-eraW_gBBwK18YYdmENP07c
+
+###
+### GET TEST TOKEN USER
+// @name LOCAL
+GET {{LSENAIA}}/auth/test/user
+content-type: application/json
+Authorization: Bearer {{token}}
+
+###
+###
