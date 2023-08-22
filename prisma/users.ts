@@ -6,14 +6,14 @@ const users = [
     password: '123456',
     email: 'marcelu@gmail.com',
     user_vpa: '1234',
-    roles: [ERole.ADMIN, ERole.CLIENT],
+    roles: [ERole.ADMIN],
   },
   {
     username: 'andrea',
     password: '1234567',
     user_vpa: '1334',
     email: 'andrea@gmail.com',
-    roles: [ERole.ADMIN, ERole.CLIENT],
+    roles: [ERole.ADMIN],
   },
   {
     username: 'natash',

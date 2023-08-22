@@ -85,7 +85,7 @@ export class AuthsController {
   }
 
   @UseGuards(JwtAuthGuard, RolesGuard)
-  @Roles(ERole.Admin)
+  @Roles(ERole.ADMIN)
   @Get('test/user')
   getProtected() {
     return 'protected data';

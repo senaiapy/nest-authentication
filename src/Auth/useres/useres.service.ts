@@ -23,11 +23,13 @@ export class UseresService {
       userId: 1,
       username: 'john',
       password: 'changeme',
+      roles: [ERole.ADMIN],
     },
     {
       userId: 2,
       username: 'maria',
       password: 'guess',
+      roles: [ERole.USER],
     },
   ];
 
@@ -116,7 +118,7 @@ export class UseresService {
             telefone: usuario.telefone,
             email: usuario.email,
             password: usuario.password,
-            roles: [/*ERole.ADMIN, ERole.CLIENT*/ ERole.USER],
+            roles: [/*ERole.ADMIN, ERole.CLIENT*/ ERole.ADMIN],
           },
         });
       }
@@ -146,6 +148,8 @@ export class UseresService {
         usuario.email = mail;
         usuario.username = username;
         usuario.password = passwordHash;
+        usuario.nome = username;
+        usuario.user_name = username;
 
         usuarios = await this.prisma.usuario.update({
           data: usuario,

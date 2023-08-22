@@ -288,10 +288,10 @@ content-type: application/json
 
 {
   "username": "Andrea",
-  "email": "andreas2@gmail.com",
+  "email": "andreas25@gmail.com",
   "password": "123456",
   "telefone": "0993547296",
-  "user_vpa": "13332",
+  "user_vpa": "133325",
   "user_system_type": "GERENTE"
 }
 ###
@@ -307,7 +307,7 @@ POST {{LSENAIA}}/auth/login
 content-type: application/json
 
 {
-  "email": "andreatanjoss@gmail.com",
+  "email": "andreas25@gmail.com",
   "username": "Andrea Anjos",
   "password": "123456"
 }
@@ -320,7 +320,7 @@ POST {{LSENAIA}}/auth/password
 content-type: application/json
 
 {
-  "email": "andreatanjoss@gmail.com",
+  "email": "andreas25@gmail.com",
   "username": "Andrea dos Anjos",
   "password": "123456"
 }
@@ -332,7 +332,7 @@ content-type: application/json
 Authorization: {{token}}
 
 {
-  "email": "andreatanjoss@gmail.com",
+  "email": "andreas25@gmail.com",
   "username": "Andrea dos Anjos",
   "password": "123456"
 }
